@@ -6,20 +6,21 @@ const app = express();
 const port = 3001;
 
 //defining allowed origins
-const allowedOrigins = ["http://localhost:3000"];
+// const allowedOrigins = [""];
 
 //configuring cors with specific origin whitelist
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("not allowed by cors"));
-      }
-    },
+    origin: "*",
+    // function (origin, callback) {
+    //   if (!origin || allowedOrigins.includes(origin)) {
+    //     callback(null, true);
+    //   } else {
+    //     callback(new Error("not allowed by cors"));
+    //   }
+    // },
     optionsSuccessStatus: 200,
-    methods: ["POST"],
+    methods: ["GET", "POST"],
   })
 );
 
